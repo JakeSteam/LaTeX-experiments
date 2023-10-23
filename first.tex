@@ -1,15 +1,20 @@
-% Article alternatives: https://www.ctan.org/topic/class
-\documentclass[12pt, letterpaper]{article} 
+% Need "book" to handle chapters
+\documentclass[12pt]{book} 
+\usepackage{graphicx} % Imports graphicx package
+\graphicspath{{images/}} % Configures graphicx
 \title{A little LaTeX document}
 \author{Jake Lee}
 \date{Oct 2023}
 \begin{document}
 \maketitle
 
+\chapter{First tests}
 Wowsa, the title gets generated just from the metadata. Cool.
 
+\section{Basic formatting}
 We can do \textbf{bold text}, \underline{underlined text}, and \textit{italic text}.
 
+\section{Emphasis}
 "Emphasis" is useful when nested inside bold / italic text:
 
 Some words \emph{and emphasis} within a sentence.
@@ -17,4 +22,62 @@ Some words \emph{and emphasis} within a sentence.
 \textit{Some words \emph{and emphasis} within a sentence.}
 
 \textbf{Some words \emph{and emphasis} within a sentence.}
+
+\section{Images}
+% Note: Usually omit extension, and we defined path earlier
+\includegraphics{skull}
+
+% Note: Interestingly, the numbering is handled automatically
+\begin{figure}
+    \centering
+    \includegraphics{skull}
+    \caption{A cute skull!}
+    \label{fig:skull}
+\end{figure}
+
+% Note: Defining width as a fraction of text makes sense
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{skull}
+    \caption{A cute skull!}
+    \label{fig:skull2}
+\end{figure}
+
+\section{Lists}
+
+\begin{itemize}
+    \item Here's one list item 
+    \item Here's another
+    \item Basically the same as ul and li
+\end{itemize}
+
+\begin{enumerate}
+    \item Ordered this time 
+    \item Very cool
+    \item Same as ol and li
+\end{enumerate}
+
+\section{Maths} 
+\subsection{Inline maths (3 variants)}
+\begin{math}E=mc^2\end{math} is typeset in a paragraph using inline math mode---as is $E=mc^2$, and so too is \(E=mc^2\).
+
+\subsection{Display maths (2 variants)}
+The mass-energy equivalence is described by the famous equation \[ E=mc^2 \] discovered in 1905 by Albert Einstein. 
+
+The mass-energy equivalence is described by the famous equation
+\begin{equation}
+    E=mc^2
+\end{equation}
+discovered in 1905 by Albert Einstein. 
+
+\subsection{Detailed maths}
+
+Subscripts and superscripts:
+
+\[ T^{i_1 i_2 \dots i_p}_{j_1 j_2 \dots j_q} = T(x^{i_1},\dots,x^{i_p},e_{j_1},\dots,e_{j_q}) \]
+
+Random symbols:
+
+\[ \omega \delta \Omega \Delta \sin \cos \tan \]
+
 \end{document}
