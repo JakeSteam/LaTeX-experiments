@@ -1,6 +1,7 @@
 % Need "book" to handle chapters
 \documentclass[12pt]{article} 
-\usepackage{graphicx} % Imports graphicx package
+\usepackage{graphicx} % Imports images package
+\usepackage{listings} % Imports code syntax highlighter package
 \graphicspath{{images/}} % Configures graphicx
 \title{A little LaTeX document}
 \author{Jake Lee}
@@ -12,8 +13,6 @@
 
 \maketitle 
 \tableofcontents 
-
-Wowsa, the title gets generated just from the metadata. Cool.
 
 \section{Basic formatting}
 We can do \textbf{bold text}, \underline{underlined text}, and \textit{italic text}.
@@ -86,8 +85,6 @@ Random symbols:
 
 \section{Tables}
 
-Table \ref{table:data} should go below here, right?
-
 \begin{table}[h!] % "h!" = "put here" https://stackoverflow.com/a/55863947/608312
     \centering
     \begin{tabular}{|c|c|c|} % Define columns
@@ -100,5 +97,31 @@ Table \ref{table:data} should go below here, right?
     \caption{This is a pointless table}
     \label{table:data}
 \end{table}
+
+\section{Code}
+
+Inline inexplicably uses \verb|Verb and pipes|.
+
+Verbatim just embeds code without touching:
+
+\begin{verbatim}
+    % Note: Defining width as a fraction of text makes sense
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{skull}
+        \caption{A cute skull!}
+        \label{fig:skull2}
+    \end{figure}
+\end{verbatim}
+
+lstlisting embeds code and tries to highlight it:
+
+\begin{lstlisting}[language=Java, caption=Example Java code]
+    class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello, World!"); 
+        }
+    }
+\end{lstlisting}
 
 \end{document}
