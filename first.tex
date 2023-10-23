@@ -1,14 +1,18 @@
 % Need "book" to handle chapters
-\documentclass[12pt]{book} 
+\documentclass[12pt]{article} 
 \usepackage{graphicx} % Imports graphicx package
 \graphicspath{{images/}} % Configures graphicx
 \title{A little LaTeX document}
 \author{Jake Lee}
 \date{Oct 2023}
 \begin{document}
-\maketitle
+\begin{abstract}
+    A little abstract overview. Small experiments in LaTeX.
+\end{abstract}
 
-\chapter{First tests}
+\maketitle 
+\tableofcontents 
+
 Wowsa, the title gets generated just from the metadata. Cool.
 
 \section{Basic formatting}
@@ -79,5 +83,22 @@ Subscripts and superscripts:
 Random symbols:
 
 \[ \omega \delta \Omega \Delta \sin \cos \tan \]
+
+\section{Tables}
+
+Table \ref{table:data} should go below here, right?
+
+\begin{table}[h!] % "h!" = "put here" https://stackoverflow.com/a/55863947/608312
+    \centering
+    \begin{tabular}{|c|c|c|} % Define columns
+     \hline % Top line
+     cell1 & cell2 & cell3 \\ 
+     cell4 & cell5 & cell6 \\ 
+     cell7 & cell8 & cell9 \\ 
+     \hline % Bottom line
+    \end{tabular}
+    \caption{This is a pointless table}
+    \label{table:data}
+\end{table}
 
 \end{document}
